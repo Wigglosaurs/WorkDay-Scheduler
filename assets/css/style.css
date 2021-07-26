@@ -14,7 +14,7 @@ textarea{
 }
 
 .box-template {
-  border: 2px solid black;
+  border-left: none;
 }
 
 .jumbotron {
