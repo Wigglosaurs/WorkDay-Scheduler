@@ -19,20 +19,31 @@ $(document).ready(function () {
 });
 
 // Function to change color of event times
-var auditTask = function () {
-    // get date from moment 
-    var time = $(timeEl).find("div")
-        .text()
-        .trim();
+// var auditTask = function () {
+//     // get date from moment 
+//     var time = $(timeEl).find("div")
+//         .text()
+//         .trim();
 
-    // convert to moment object at 5:00pm
-    var endDay = moment(time, "L").set("hour", 17);
+//     // convert to moment object at 5:00pm
+// var endDay = moment(time, "L").set("hour", 17);
 
-    // apply new class if event is near/over due date
-    if (moment().isAfter(endDay)) {
-        $(timeEl).addClass("past");
-    }
-    else if (Math.abs(moment().diff(endDay, "hours")) <= 2) {
-        $(timeEl).addClass("present");
-    }
+//     // apply new class if event is near/over due date
+// if (moment().isAfter(endDay)) {
+//     $(timeEl).addClass(".past");
+// }
+// else if (Math.abs(moment().diff(endDay, "hours")) <= 2) {
+//     $(timeEl).addClass(".present");
+// }
+// };
+
+var auditTask = function (element) {
+    console.log(element.text());
+
+
 };
+
+$(".time").each(function () {
+    auditTask($(this));
+});
+
