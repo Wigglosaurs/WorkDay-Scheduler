@@ -18,3 +18,21 @@ $(document).ready(function () {
     $('#currentDay').text(moment().format('dddd, MMMM Do'));
 });
 
+// Function to change color of event times
+var auditTask = function () {
+    // get date from moment 
+    var time = $(timeEl).find("div")
+        .text()
+        .trim();
+
+    // convert to moment object at 5:00pm
+    var endDay = moment(time, "L").set("hour", 17);
+
+    // apply new class if event is near/over due date
+    if (moment().isAfter(endDay)) {
+        $(timeEl).addClass("past");
+    }
+    else if (Math.abs(moment().diff(endDay, "hours")) <= 2) {
+        $(timeEl).addClass("present");
+    }
+};
